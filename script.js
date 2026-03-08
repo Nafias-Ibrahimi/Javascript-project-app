@@ -1,5 +1,6 @@
-const container = document.createElement('div'); // fixed typo
+const container = document.createElement('div');
 const nav = document.createElement('nav');
+// const header=document.createElement('header;');
 
 const links = [
   { text: 'Shop', url: '/shop' },
@@ -19,6 +20,7 @@ links.forEach((item) => {
 
   a.textContent = item.text;
   a.href = item.url;
+  a.setAttribute('style', 'text-decoration:none; color:black; font-weight:bold; color:black;');
 
   li.appendChild(a);
   nav.appendChild(li);
@@ -36,7 +38,7 @@ container.setAttribute('id', 'container');
 container.setAttribute('title', 'container');
 container.setAttribute(
   'style',
-  'height:50px; background-color:red; margin-top:0; display:flex; align-items:center; gap:20px; padding:0 10px; list-style:none;',
+  'height:50px; background-color:lightblue; margin-top:0; display:flex; align-items:center; gap:20px; padding:0 10px; list-style:none;',
 );
 
 document.body.style.margin = '0';
@@ -48,5 +50,5 @@ document.body.appendChild(container);
 // Style nav
 nav.setAttribute(
   'style',
-  'display:flex; align-items:center; gap:20px; list-style:none; width:100%; height:100%; margin:0; padding:0; justify-content:flex-end;',
+  'display:flex; align-items:center; gap:20px; list-style:none; width:100%; height:100%; margin:0; padding:0; justify-content:flex-end; ',
 );
