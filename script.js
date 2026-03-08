@@ -1,6 +1,23 @@
 const container = document.createElement('div');
+container.setAttribute('style', 'width:100%; height:60px; background-color:lightblue; display:flex; align-items:center; padding:0 20px;');
+
+// Nav
 const nav = document.createElement('nav');
-// const header=document.createElement('header;');
+nav.setAttribute('style', 'display:flex; align-items:center; justify-content:space-between; width:100%; height:100%;');
+
+// logo
+const logo = document.createElement('div');
+logo.textContent = 'Blush.';
+logo.setAttribute('style', 'font-size:28px; font-weight:bold; font-family:Georgia,serif; color:black;');
+nav.appendChild(logo);
+
+// Container
+const rightContainer = document.createElement('div');
+rightContainer.setAttribute('style', 'display:flex; align-items:center; gap:20px;');
+
+// links
+const linksContainer = document.createElement('ul');
+linksContainer.setAttribute('style', 'display:flex; gap:15px; list-style:none; margin:0; padding:0;');
 
 const links = [
   { text: 'Shop', url: '/shop' },
@@ -10,45 +27,28 @@ const links = [
   { text: 'Contact', url: '/contact' },
 ];
 
-// Add links
 links.forEach((item) => {
   const li = document.createElement('li');
   const a = document.createElement('a');
-
-  li.className = 'nav-list';
-  a.className = 'nav-item';
-
   a.textContent = item.text;
   a.href = item.url;
-  a.setAttribute('style', 'text-decoration:none; color:black; font-weight:bold; color:black;');
-
+  a.setAttribute('style', 'text-decoration:none; color:black; font-weight:bold;');
   li.appendChild(a);
-  nav.appendChild(li);
+  linksContainer.appendChild(li);
 });
 
-// Add image
+rightContainer.appendChild(linksContainer);
+
+// img
 const img = document.createElement('img');
 img.src = '/img/102665.png';
 img.style.width = '30px';
-nav.appendChild(img);
+img.style.paddingRight = '50px';
+rightContainer.appendChild(img);
 
-// Style container
-container.setAttribute('class', 'container');
-container.setAttribute('id', 'container');
-container.setAttribute('title', 'container');
-container.setAttribute(
-  'style',
-  'height:50px; background-color:lightblue; margin-top:0; display:flex; align-items:center; gap:20px; padding:0 10px; list-style:none;',
-);
-
-document.body.style.margin = '0';
-document.body.style.padding = '0';
+nav.appendChild(rightContainer);
 
 container.appendChild(nav);
+document.body.style.margin = '0';
+document.body.style.padding = '0';
 document.body.appendChild(container);
-
-// Style nav
-nav.setAttribute(
-  'style',
-  'display:flex; align-items:center; gap:20px; list-style:none; width:100%; height:100%; margin:0; padding:0; justify-content:flex-end; ',
-);
