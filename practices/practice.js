@@ -2,6 +2,7 @@ const input = document.createElement('input');
 input.type = 'text';
 input.placeholder = 'enter letter';
 input.id = 'letter';
+input.setAttribute('style', 'display:flex; align-items:center; justify-content:center; background-color:red;');
 
 const list = document.createElement('ul');
 
