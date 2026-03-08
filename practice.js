@@ -1,32 +1,35 @@
+const input = document.createElement('input');
+input.type = 'text';
+input.placeholder = 'enter letter';
+input.id = 'letter';
 
-const input=document.createElement("input");
-input.type="text";
-input.placeholder="enter letter";
-input.id="letter";
-
-const list=document.createElement("ul");
+const list = document.createElement('ul');
 
 document.body.appendChild(input);
-document.body.appendChild(list); 
+document.body.appendChild(list);
 
-let items=JSON.parse(localStorage.getItem("keys")) || [];
-items.forEach(function(text){
-    const li=document.createElement("li");
-    li.textContent=text;
-    list.appendChild(li);
+const items = JSON.parse(localStorage.getItem('keys')) || [];
+
+// Display previously saved items
+items.forEach((text) => {
+  const li = document.createElement('li');
+  li.textContent = text;
+  list.appendChild(li);
 });
-input.addEventListener("keypress" , function(event){
-    let code=event.charCode || keyCode;
-    let value=input.value + event.key;
 
-    let text="value:" + value + "| code:" + code;
+// Key press listener
+input.addEventListener('keypress', (event) => {
+  const code = event.charCode || event.keyCode;
+  const value = input.value + event.key;
 
-    const item=document.createElement("li");
-    item.textContent=text;
-    list.appendChild(item);
-})
+  const text = `value: ${value} | code: ${code}`;
 
-// localStorage
-items.push(text);
-localStorage.setItem("keys" , JSON.stringify(items));
+  // Add new item to the list
+  const item = document.createElement('li');
+  item.textContent = text;
+  list.appendChild(item);
 
+  // Save to localStorage
+  items.push(text);
+  localStorage.setItem('keys', JSON.stringify(items));
+});
